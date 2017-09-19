@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="793.70081"
+   height="793"
+   viewBox="0 0 210 209.81459"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="alert-bell.svg">
+  <title
+     id="title17">Alert bell</title>
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.5"
+     inkscape:cx="388.87527"
+     inkscape:cy="559.76283"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-global="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Alert bell</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Sergio Luiz Araujo Silva</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>bell</rdf:li>
+            <rdf:li>notification</rdf:li>
+            <rdf:li>alert</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:description>a simple bell </dc:description>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-87.185409)">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#f7e6b6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.22058237;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 27.209072,136.64127 a 2.80532,3.3398752 0 0 0 -1.756903,0.66482 c -13.843833,11.97839 -22.6604041,30.49714 -24.1802429,50.79138 -1.51984008,20.2942 4.4071857,40.38636 16.2526559,55.09166 a 2.80532,3.3398752 0 1 0 4.047291,-4.61877 C 10.845813,225.25476 5.4830492,207.0721 6.8592501,188.69573 8.235449,170.31936 16.21282,153.55571 28.748341,142.70939 a 2.80532,3.3398752 0 0 0 -1.539269,-6.06812 z m 156.887818,0 a 2.80532,3.3398752 0 0 0 -1.53927,6.06812 c 12.53552,10.84632 20.51289,27.60997 21.88909,45.98634 1.37622,18.37637 -3.98657,36.55903 -14.71262,49.87463 a 2.80532,3.3398752 0 1 0 4.04728,4.61877 c 11.84546,-14.7053 17.77251,-34.79746 16.25267,-55.09166 -1.51985,-20.29424 -10.33642,-38.81299 -24.18025,-50.79138 a 2.80532,3.3398752 0 0 0 -1.7569,-0.66482 z m -78.47716,11.14933 c -2.58606,0 -4.70925,2.52863 -4.70925,5.60749 0,0.33433 0.0291,0.66001 0.0771,0.97881 -9.718866,3.52191 -14.780643,16.49886 -15.558959,29.29611 -2.169178,17.82804 -8.379223,26.52733 -14.297015,34.79204 -8.056073,7.68235 -3.70505,15.34793 1.68209,15.0187 10.939638,0.82076 21.853951,0.87617 32.839304,0.76832 10.98541,0.10788 21.89972,0.0524 32.8393,-0.76832 5.38715,0.32923 9.73818,-7.33635 1.68211,-15.0187 -5.91781,-8.26471 -12.12782,-16.964 -14.29701,-34.79204 -0.78001,-12.82537 -5.86168,-25.83246 -15.62244,-29.32041 0.0457,-0.31122 0.0749,-0.62859 0.0749,-0.95451 0,-3.07886 -2.12392,-5.60749 -4.71,-5.60749 z m -68.738259,1.45922 a 2.8053204,3.3398758 0 0 0 -1.4962,0.58387 c -11.284715,8.94509 -18.580156,23.48613 -19.841264,39.55657 -1.26111,16.07047 3.643457,31.96617 13.34111,43.24512 a 2.8054526,3.340033 0 1 0 3.917322,-4.78252 C 24.312812,217.9789 20.027305,204.07957 21.131326,190.01101 22.235323,175.9424 28.609763,163.22251 38.488748,155.3917 a 2.8053204,3.3398758 0 0 0 -1.607277,-6.14188 z m 137.543029,0 a 2.8053204,3.3398758 0 0 0 -1.60729,6.14188 c 9.87899,7.83081 16.25344,20.5507 17.35743,34.61931 1.10402,14.06856 -3.18151,27.96789 -11.67112,37.84185 a 2.8054545,3.3400354 0 1 0 3.91733,4.78252 c 9.69767,-11.27895 14.60222,-27.17465 13.3411,-43.24512 -1.2611,-16.07044 -8.55653,-30.61148 -19.84127,-39.55657 a 2.8053204,3.3398758 0 0 0 -1.49618,-0.58387 z m -68.77454,2.10698 c 0.99121,0 1.76899,0.92597 1.76899,2.10606 0,0.0613 -0.0118,0.11834 -0.0149,0.17812 -0.57151,-0.0875 -1.15207,-0.1558 -1.75087,-0.18171 -0.60116,0.0259 -1.184,0.0944 -1.75766,0.18262 -0.005,-0.06 -0.0145,-0.11748 -0.0145,-0.17903 0,-1.18009 0.77777,-2.10606 1.76899,-2.10606 z m -59.270651,11.30045 a 2.8053204,3.3398758 0 0 0 -1.527179,0.48041 c -8.434539,5.9081 -13.969218,16.2992 -14.868291,27.90076 -0.899073,11.60155 2.946406,23.01968 10.330574,30.66536 a 2.8053204,3.3398758 0 1 0 3.680801,-5.04072 c -6.026495,-6.23995 -9.157816,-15.54256 -8.424053,-25.0111 0.733793,-9.46851 5.246775,-17.9347 12.130548,-22.75656 a 2.8053204,3.3398758 0 0 0 -1.3224,-6.23815 z m 118.547351,0 a 2.8053204,3.3398758 0 0 0 -1.32241,6.23815 c 6.88378,4.82186 11.39677,13.28805 12.13054,22.75656 0.73377,9.46854 -2.3983,18.77115 -8.4248,25.0111 a 2.8053593,3.3399219 0 1 0 3.68156,5.04072 c 7.38417,-7.64568 11.22964,-19.06381 10.33056,-30.66536 -0.89908,-11.60156 -6.43373,-21.99266 -14.86828,-27.90076 a 2.8053204,3.3398758 0 0 0 -1.52717,-0.48041 z m -50.93424,74.68868 c -0.23524,0.0341 -0.47436,0.0586 -0.71789,0.0586 H 97.302228 a 8.4098227,10.012319 0 0 0 -0.05889,1.12636 8.4098227,10.012319 0 0 0 8.409692,10.01216 8.4098227,10.012319 0 0 0 8.40971,-10.01216 8.4098227,10.012319 0 0 0 -0.0703,-1.18484 z"
+       id="path1406"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

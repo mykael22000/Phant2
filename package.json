@@ -1,6 +1,6 @@
 {
   "name": "phant-2",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Browser for indexes holding alerts in the Helefalump format.",
   "main": "index.js",
   "kibana": {

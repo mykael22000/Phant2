@@ -10,7 +10,8 @@ export default function (kibana) {
       app: {
         title: 'Phant 2',
         description: 'Browser for indexes holding alerts in the Helefalump format.',
-        main: 'plugins/phant-2/app'
+        main: 'plugins/phant-2/app',
+	icon: 'plugins/phant-2/alert-bell.svg'
       },
       
       

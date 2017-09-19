@@ -1,6 +1,11 @@
 # Phant2
 
-> Browser for indexes holding alerts in the Helefalump format.
+> Kibana plugin - Browser for indexes holding alerts in the Helefalump format. 
+>
+> Helefalump format is defiend in my phant1 project:
+>    https://github.com/mykael22000/phant1
+> 
+> Both are in extreamly early alpha at this point.
 
 ---
 
