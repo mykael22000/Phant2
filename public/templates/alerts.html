@@ -2,11 +2,22 @@
   <div class="row">
     <div class="col-12-sm">
       <h1>Phant2 Alerts</h1>
-      <ul class="alertList">
-        <li ng-repeat="alert in ctrl.alerts">
-          <a href="#/alert/{{alert}}">{{ alert }}</a>
-        </li>
-      </ul>
+      <table style="width:100%">
+	<tr>
+	  <th style="width:10%">Severity</td>	
+	  <th style="width:10%">Timestamp</td>	
+	  <th style="width:20%">Class</td>	
+	  <th style="width:50%">Text</td>	
+	  <th style="width:10%">Actions</td>
+        </tr>
+	<tr ng-repeat="alert in ctrl.alerts" style="background-color:{{alert.bg}}">
+	  <td>{{alert.severity}}</td>	
+	  <td>{{alert.timestamp}}</td>	
+	  <td>{{alert.class}}</td>	
+	  <td>{{alert.text}}</td>	
+	  <td><a href="#/alert/{{alert}}">D</a></td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
