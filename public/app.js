@@ -25,15 +25,19 @@ uiRoutes
 uiModules
 .get('app/Phant2', [])
 
-.controller('phant-2AlertListController', function ($http) {
-console.log('In phant-2AlertListController');	
-  $http.get('../api/phant-2/alerts').then((response) => {
-    this.alerts = response.data;
-console.log(response);	  
-  });
+.controller('phant-2AlertListController', function ($http, $scope, $timeout) {
+	
+  var refreshAlerts = function() {   	
+	  $http.get('../api/phant-2/alerts').then((response) => {
+	    $scope.alerts = response.data;
+	  });	  
+	  $timeout(refreshAlerts, 1000);
+  };
+
+  refreshAlerts();
+	  
 })
 
 .controller('phant-2IndexController', function ($http) {
-console.log('In phant-2IndexController');	
 });
 

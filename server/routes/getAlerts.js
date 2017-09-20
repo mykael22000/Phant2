@@ -13,7 +13,9 @@ export default function (server) {
 				index: 'phant-alert1',
 				size: '20',
 				body : {
-				  sort : [{}],
+				  sort : [
+       					{ "timestamp" : {"order" : "desc"}}
+				         ],
 			  	  query : {
 				    bool : {
 				      must :{
@@ -34,18 +36,15 @@ export default function (server) {
 				}
 			};
 
-console.log(JSON.stringify(searchRequest));
-
 			// Drive the search...
 	
 			callWithRequest(req,'search',searchRequest).then(function (response) {
-console.log(response);			
+
 				reply(  
 					unpack(response)
-//					Object.keys(response.hits.hits)
 				);
 			}).catch(function (response) {
-console.log(response);			
+
           			if (resp.isBoom) {
 					reply(response);
 				} else {
@@ -53,15 +52,18 @@ console.log(response);
 				        reply(response);
         	  		}
         		});
-//			callWithRequest(req, 'cluster.state').then(function (response) {
-//console.log(response);				
-//				reply(
-//         				Object.keys(response.metadata.indices)
-//        			);
-//     			});
     		}
   	});
 }
+
+// Mapping for alert severity to display color
+
+const colors = { "Info": "#00A000",
+              "Warning": "yellow",
+	     "Critical": "orange",
+	        "Fatal": "red" };
+
+// Process and untangle the alerts
 
 function unpack(serverResponse) {
 	var alerts = [];
@@ -72,14 +74,30 @@ function unpack(serverResponse) {
                 var event = hits[i]._source;
 
 		var sev = event.severity;
-		var bg = '#A0A0A0';
-		if (sev == 'Info') {
-			bg = '#00A000';
-		}
+		var bg = colors[sev];
+		if (bg == "") {
+			br = "#A0A0A0";
+		}	
 		event.bg = bg;
 
+		var ts = event.timestamp;
+		var d = new Date(+ts);
+
+		var datestring = ("0" + d.getDate()).slice(-2) + "-" 
+			       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
+			       + d.getFullYear(); 
+
+		var timestring = ('0'+d.getHours()).slice(-2) + ':' 
+			       + ('0'+d.getMinutes()).slice(-2) + ':' 
+			       + ('0'+d.getSeconds()).slice(-2); 
+
+		//var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " " +
+		//d.getHours() + ":" + d.getMinutes();
+
+		event.display_date = datestring;
+		event.display_time = timestring;
+
 		alerts[i] = event;
-			
 console.log(alerts[i]);		
 	}	
 
