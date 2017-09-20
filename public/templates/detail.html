@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12-sm">
+     <h1>Alert: {{ ctrl.alert._id }}</h1>
+      <p><a href="#/alerts">Alert List</a></p>
+      <table style="width:100%;border: 1px solid black">
+	<tr style="border: 1px solid black">
+		<td colspan=3 style="background-color: {{ ctrl.alert.bg }} ;text-align:center"><b>{{ctrl.alert.severity}}</b></td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  <th scope=row style="text-align:right;padding:10px">Class</th>	
+	  <td>{{ctrl.alert.class}}</td>	
+	</tr>
+	<tr style="border: 1px solid black">
+	  <th scope=row style="text-align:right;padding:10px">Timestamp</th>		
+	  <td>{{ctrl.alert.display_date}} {{ctrl.alert.display_time}}</td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  <th scope=row style="text-align:right;padding:10px">Text</th>	
+  	  <td>{{ctrl.alert.text}}</td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  	<th scope=row style="text-align:right;padding:10px">Tokens</th>	
+		<td><pre>{{ ctrl.alert.tokens }}</pre></td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  	<th scope=row style="text-align:right;padding:10px">Source</th>	
+		<td>{{ ctrl.alert.source }}</td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  	<th scope=row style="text-align:right;padding:10px">Link</th>	
+		<td>{{ ctrl.alert.source_link }} - <a href="{{ ctrl.alert.source_link }}">Click me</a></td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  	<th scope=row style="text-align:right;padding:10px">Impacts</th>	
+		<td></p><pre>{{ ctrl.alert.impacts }}</pre></td>
+	</tr>
+	<tr style="border: 1px solid black">
+	  	<th scope=row style="text-align:right;padding:10px">Data</th>	
+		<td><pre>{{ ctrl.alert.data }}</pre></td>
+	</tr>	
+      </table><br>
+
+      <table style="width:100%;border: 1px solid black">      
+	<tr style="border: 1px solid black">
+		<td><details syle="display:initial">
+	      		<summary><b>&gt<font color=#404080>Click here for full JSON</font><b></summary>
+	      		<pre>{{ ctrl.alert | json }}</pre>
+		</details></td>	      
+	</tr>	
+      </table>
+    </div>
+  </div>
+</div>

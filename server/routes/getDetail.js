@@ -3,10 +3,10 @@ export default function (server) {
 	const { callWithRequest } = server.plugins.elasticsearch.getCluster('data');	
 
 	server.route({
-		path: '/api/phant-2/alerts',
+		path: '/api/phant-2/alert/{id}',
 		method: 'GET',
 		handler(req, reply) {
-			
+console.log(req.params);			
 			// Construct a search request
 
 			var searchRequest = {
@@ -21,8 +21,8 @@ export default function (server) {
 				      must :{
 				        query_string : {
 				          analyze_wildcard: true,
-				          default_field : 'severity',
-				          query : '*'
+				          default_field : '_id',
+				          query : req.params.id
 				        }
 				      },
 				      filter: {
@@ -73,7 +73,7 @@ function unpack(serverResponse) {
 
 	for (var i = 0; i < hits.length; i++) {
                 var event = hits[i]._source;
-		event._id = hits[i]._id;		
+		event._id = hits[i]._id;
 
 		var sev = event.severity;
 		var bg = colors[sev];

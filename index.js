@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import exampleRoute from './server/routes/example';
 import getAlerts from './server/routes/getAlerts';
+import getDetail from './server/routes/getDetail';
 
 export default function (kibana) {
   return new kibana.Plugin({
@@ -33,6 +34,7 @@ export default function (kibana) {
       // Add server routes and initialize the plugin here
       exampleRoute(server);
       getAlerts(server);
+      getDetail(server);	    
     }
     
 
