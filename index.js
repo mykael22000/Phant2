@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import exampleRoute from './server/routes/example';
+import getAlerts from './server/routes/getAlerts';
 
 export default function (kibana) {
   return new kibana.Plugin({
@@ -19,7 +20,6 @@ export default function (kibana) {
         resolve(__dirname, './translations/es.json')
       ],
       
-      
     },
 
     config(Joi) {
@@ -32,6 +32,7 @@ export default function (kibana) {
     init(server, options) {
       // Add server routes and initialize the plugin here
       exampleRoute(server);
+      getAlerts(server);
     }
     
 
