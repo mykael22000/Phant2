@@ -1,43 +1,43 @@
 <div class="container">
   <div class="row">
     <div class="col-12-sm">
-     <h1>Alert: {{ ctrl.alert._id }}</h1>
+     <h1>Alert: {{ alert_id }}</h1>
       <p><a href="#/alerts">Alert List</a></p>
       <table style="width:100%;border: 1px solid black">
 	<tr style="border: 1px solid black">
-		<td colspan=3 style="background-color: {{ ctrl.alert.bg }} ;text-align:center"><b>{{ctrl.alert.severity}}</b></td>
+		<td colspan=3 style="background-color: {{ alert.bg }} ;text-align:center"><b>{{alert.severity}}</b></td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  <th scope=row style="text-align:right;padding:10px">Class</th>	
-	  <td>{{ctrl.alert.class}}</td>	
+	  <td>{{alert.class}}</td>	
 	</tr>
 	<tr style="border: 1px solid black">
 	  <th scope=row style="text-align:right;padding:10px">Timestamp</th>		
-	  <td>{{ctrl.alert.display_date}} {{ctrl.alert.display_time}}</td>
+	  <td>{{alert.display_date}} {{alert.display_time}}</td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  <th scope=row style="text-align:right;padding:10px">Text</th>	
-  	  <td>{{ctrl.alert.text}}</td>
+  	  <td>{{alert.text}}</td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  	<th scope=row style="text-align:right;padding:10px">Tokens</th>	
-		<td><pre>{{ ctrl.alert.tokens }}</pre></td>
+		<td><pre>{{ alert.tokens }}</pre></td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  	<th scope=row style="text-align:right;padding:10px">Source</th>	
-		<td>{{ ctrl.alert.source }}</td>
+		<td>{{ alert.source }}</td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  	<th scope=row style="text-align:right;padding:10px">Link</th>	
-		<td>{{ ctrl.alert.source_link }} - <a href="{{ ctrl.alert.source_link }}">Click me</a></td>
+		<td>{{ alert.source_link }} - <a href="{{ alert.source_link }}">Click me</a></td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  	<th scope=row style="text-align:right;padding:10px">Impacts</th>	
-		<td></p><pre>{{ ctrl.alert.impacts }}</pre></td>
+		<td></p><pre>{{ alert.impacts }}</pre></td>
 	</tr>
 	<tr style="border: 1px solid black">
 	  	<th scope=row style="text-align:right;padding:10px">Data</th>	
-		<td><pre>{{ ctrl.alert.data }}</pre></td>
+		<td><pre>{{ alert.data }}</pre></td>
 	</tr>	
       </table><br>
 
@@ -45,7 +45,7 @@
 	<tr style="border: 1px solid black">
 		<td><details syle="display:initial">
 	      		<summary><b>&gt<font color=#404080>Click here for full JSON</font><b></summary>
-	      		<pre>{{ ctrl.alert | json }}</pre>
+	      		<pre>{{ alert | json }}</pre>
 		</details></td>	      
 	</tr>	
       </table>

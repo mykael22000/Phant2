@@ -31,38 +31,56 @@ uiRoutes
 uiModules
 .get('app/Phant2', [])
 
+// Controller for the Alert List View, repoll - 5 seconds
+
 .controller('phant-2AlertListController', function ($http, $scope, $timeout) {
 
   var timer = 0;	 
  
   var refreshAlerts = function() {   	
+
 	  $http.get('../api/phant-2/alerts').then((response) => {
 	    $scope.alerts = response.data;
-	  });	  
-	  timer = $timeout(refreshAlerts, 1000);
-  };
+          });	  
+
+	  timer = $timeout(refreshAlerts, 5000);
+  }
 
   refreshAlerts();
 
   $scope.$on('$destroy', function(){
       $timeout.cancel(timer);	  
-  })  
+  }); 
 })
 
-//Try this for now, should probably pass and search for _id
+// Controllor for the Alert Details View, repoll - 5 seconds
 
-.controller('phant-2AlertDetailController', function($routeParams, $scope, $http) {
+.controller('phant-2AlertDetailController', function($routeParams, $scope, $http, $timeout) {
   this.id = $routeParams.id;
- 
-  $http.get('../api/phant-2/alert/' + `${this.id}`).then((response) => {
-  
-    if (response.data.length == 1) {	  
-      this.alert = response.data[0];
-    }	    
-	  
-  });	  	
+  $scope.alert_id = $routeParams.id;	
 
+  var timer = 0;
+
+  var refreshDetails = function() {	
+    $http.get('../api/phant-2/alert/' + $scope.alert_id).then((response) => {
+  
+      if (response.data.length == 1) {	  
+        $scope.alert = response.data[0];
+      }	    
+
+    });	     
+
+    timer = $timeout(refreshDetails, 5000);   
+  }	  	
+
+  refreshDetails();
+
+  $scope.$on('$destroy', function(){
+      $timeout.cancel(timer);	  
+  });  	  
 })	
+
+// Controller for the index page - does nothing
 
 .controller('phant-2IndexController', function ($http) {
 });
