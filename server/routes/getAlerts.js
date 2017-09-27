@@ -3,10 +3,10 @@ export default function (server) {
 	const { callWithRequest } = server.plugins.elasticsearch.getCluster('data');	
 
 	server.route({
-		path: '/api/phant-2/alerts',
+		path: '/api/phant-2/alerts/{since}',
 		method: 'GET',
 		handler(req, reply) {
-			
+console.log(req.params);			
 			// Construct a search request
 
 			var searchRequest = {
@@ -18,13 +18,18 @@ export default function (server) {
 				         ],
 			  	  query : {
 				    bool : {
-				      must :{
+				      must : [ {
 				        query_string : {
 				          analyze_wildcard: true,
 				          default_field : 'severity',
 				          query : '*'
-				        }
-				      },
+				        }},
+				        {				      	    
+				        range :{
+					      last_updated: { "gt": req.params.since,
+				                          "format": "epoch_millis" }
+				        },	      
+				      } ],	       
 				      filter: {
 				        bool : {
 				          must : [],
@@ -32,14 +37,15 @@ export default function (server) {
 				        }
 				      }
 			  	    }
-				  },
+				  }
 				}
 			};
 
 			// Drive the search...
-	
+console.log(searchRequest);
+console.log(searchRequest.body.query.bool);
 			callWithRequest(req,'search',searchRequest).then(function (response) {
-
+console.log(response);
 				reply(  
 					unpack(response)
 				);

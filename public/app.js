@@ -54,19 +54,36 @@ uiModules
 	return event;
   };		
 
-  var timer = 0;	 
+  var timer = 0;
+
+  $scope.alerts = [];	
+
+  $scope.since = 0;
+
+  var receiveAlerts = function(alerts) {
+
+	for (var i = 0; i < alerts.length; i++) {
+		var event = alerts[i];
+		$scope.alerts.push(formatFields(event));
+
+		if (event.last_updated > $scope.since) {
+			$scope.since = event.last_updated;
+		}	
+	}	       
+  }	  
  
   var refreshAlerts = function() {   	
 
-	  $http.get('../api/phant-2/alerts').then((response) => {
-	    var alerts = response.data;
-
-	    for (var i = 0; i < alerts.length; i++) {
-		    var event = alerts[i];
-		    alerts[i] = formatFields(event);
-	    }	    
-
-            $scope.alerts = alerts;		   
+	  $http.get('../api/phant-2/alerts/' + $scope.since ).then((response) => {
+	    receiveAlerts(response.data);	  	  
+//	    var alerts = response.data;
+//
+//	    for (var i = 0; i < alerts.length; i++) {
+//		    var event = alerts[i];
+//		    alerts[i] = formatFields(event);
+//	    }	    
+//
+//          $scope.alerts = alerts;		   
           });	  
 
 	  timer = $timeout(refreshAlerts, 5000);
@@ -75,7 +92,9 @@ uiModules
   refreshAlerts();
 
   $scope.$on('$destroy', function(){
-      $timeout.cancel(timer);	  
+      $timeout.cancel(timer);	
+      $scope.alerts = {};	
+      $scope.since = 0;	  
   }); 
 })
 
