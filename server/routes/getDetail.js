@@ -69,57 +69,17 @@ function unpack(serverResponse) {
 
 	var alerts = [];
 
-	var hits = serverResponse.hits.hits;  // Array of alert objects
+	var event = serverResponse.hits.hits[0]._source;
+	event._id = serverResponse.hits.hits[0]._id;
 
-	for (var i = 0; i < hits.length; i++) {
-                var event = hits[i]._source;
-		event._id = hits[i]._id;
-
-		var sev = event.severity;
-		var bg = colors[sev];
-		if (bg == "") {
-			br = "#A0A0A0";
-		}	
-		event.bg = bg;
-
-		var ts = event.timestamp;
-		var d = new Date(+ts);
-
-		var datestring = ("0" + d.getDate()).slice(-2) + "-" 
-			       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
-			       + d.getFullYear(); 
-
-		var timestring = ('0'+d.getHours()).slice(-2) + ':' 
-			       + ('0'+d.getMinutes()).slice(-2) + ':' 
-			       + ('0'+d.getSeconds()).slice(-2); 
-
-		event.display_date = datestring;
-		event.display_time = timestring;
- 
-		if (event.history !== undefined) { 
-			for (var j = 0; j < event.history.length; j++) {
-				var hist = event.history[j];
-
-				ts = hist.timestamp;
-
-				d = new Date(+ts);
-
-				datestring = ("0" + d.getDate()).slice(-2) + "-" 
-				       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
-				       + d.getFullYear();
-
-				timestring = ('0'+d.getHours()).slice(-2) + ':' 
-				       + ('0'+d.getMinutes()).slice(-2) + ':' 
-				       + ('0'+d.getSeconds()).slice(-2);
-
-				hist.display_date = datestring; 
-				hist.display_time = timestring;
-			}	
-		}	
-
-		alerts[i] = event;
-console.log(alerts[i]);		
+	var sev = event.severity;
+	var bg = colors[sev];
+	if (bg == "") {
+		br = "#A0A0A0";
 	}	
+	event.bg = bg;
 
-	return alerts;
+	console.log(event);
+
+	return event;
 }	

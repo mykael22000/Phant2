@@ -54,20 +54,62 @@ uiModules
 })
 
 // Controllor for the Alert Details View, repoll - 5 seconds
+// This runs client side
 
 .controller('phant-2AlertDetailController', function($routeParams, $scope, $http, $timeout) {
   this.id = $routeParams.id;
   $scope.alert_id = $routeParams.id;	
+
+  var formatFields = function(event) {
+
+	var ts = event.timestamp;
+	var d = new Date(+ts);
+
+	var datestring = ("0" + d.getDate()).slice(-2) + "-" 
+		       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
+		       + d.getFullYear(); 
+
+	var timestring = ('0'+d.getHours()).slice(-2) + ':' 
+		       + ('0'+d.getMinutes()).slice(-2) + ':' 
+		       + ('0'+d.getSeconds()).slice(-2); 
+
+	event.display_date = datestring;
+	event.display_time = timestring;
+ 
+	if (event.history !== undefined) { 
+		for (var j = 0; j < event.history.length; j++) {
+			var hist = event.history[j];
+
+			ts = hist.timestamp;
+
+			d = new Date(+ts);
+
+			datestring = ("0" + d.getDate()).slice(-2) + "-" 
+			       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
+			       + d.getFullYear();
+
+			timestring = ('0'+d.getHours()).slice(-2) + ':' 
+			       + ('0'+d.getMinutes()).slice(-2) + ':' 
+			       + ('0'+d.getSeconds()).slice(-2);
+
+			hist.display_date = datestring; 
+			hist.display_time = timestring;
+		}	
+	}	
+
+	return event;
+  };	
 
   var timer = 0;
 
   var refreshDetails = function() {	
     $http.get('../api/phant-2/alert/' + $scope.alert_id).then((response) => {
   
-      if (response.data.length == 1) {	  
-        var alert = response.data[0];
+	var alert = response.data;      
+
+	alert = formatFields(alert);
+
 	$scope.alert = alert;      
-      }	    
 
     });	     
 
