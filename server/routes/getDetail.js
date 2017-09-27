@@ -95,6 +95,27 @@ function unpack(serverResponse) {
 
 		event.display_date = datestring;
 		event.display_time = timestring;
+ 
+		if (event.history !== undefined) { 
+			for (var j = 0; j < event.history.length; j++) {
+				var hist = event.history[j];
+
+				ts = hist.timestamp;
+
+				d = new Date(+ts);
+
+				datestring = ("0" + d.getDate()).slice(-2) + "-" 
+				       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
+				       + d.getFullYear();
+
+				timestring = ('0'+d.getHours()).slice(-2) + ':' 
+				       + ('0'+d.getMinutes()).slice(-2) + ':' 
+				       + ('0'+d.getSeconds()).slice(-2);
+
+				hist.display_date = datestring; 
+				hist.display_time = timestring;
+			}	
+		}	
 
 		alerts[i] = event;
 console.log(alerts[i]);		

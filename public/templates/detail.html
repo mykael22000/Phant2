@@ -16,6 +16,10 @@
 	  <td>{{alert.display_date}} {{alert.display_time}}</td>
 	</tr>
 	<tr style="border: 1px solid black">
+	  <th scope=row style="text-align:right;padding:10px">Process Status</th>		
+	  <td>{{alert.process_status}}</td>
+	</tr>	
+	<tr style="border: 1px solid black">
 	  <th scope=row style="text-align:right;padding:10px">Text</th>	
   	  <td>{{alert.text}}</td>
 	</tr>
@@ -39,6 +43,21 @@
 	  	<th scope=row style="text-align:right;padding:10px">Data</th>	
 		<td><pre>{{ alert.data }}</pre></td>
 	</tr>	
+      </table><br>
+
+      <table style="width:100%;border: 1px solid black">   
+	<tr style="border: 1px solid black">
+		<th width=12%>Date</th>
+		<th width=8%>Agent</th>
+		<th width=8%>Event</th>
+		<th width=70%>History</th>
+	</tr>	
+	<tr ng-repeat="hist in alert.history">
+	  	<td>{{hist.display_date}} {{hist.display_time}}</td>	
+		<td>{{hist.agent}}</td>	
+		<td>{{hist.event}}</td>	
+		<td>{{hist.text}}</td>	
+        </tr>
       </table><br>
 
       <table style="width:100%;border: 1px solid black">      

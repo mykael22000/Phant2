@@ -65,7 +65,8 @@ uiModules
     $http.get('../api/phant-2/alert/' + $scope.alert_id).then((response) => {
   
       if (response.data.length == 1) {	  
-        $scope.alert = response.data[0];
+        var alert = response.data[0];
+	$scope.alert = alert;      
       }	    
 
     });	     
