@@ -82,20 +82,6 @@ function unpack(serverResponse) {
 		}	
 		event.bg = bg;
 
-		var ts = event.timestamp;
-		var d = new Date(+ts);
-
-		var datestring = ("0" + d.getDate()).slice(-2) + "-" 
-			       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
-			       + d.getFullYear(); 
-
-		var timestring = ('0'+d.getHours()).slice(-2) + ':' 
-			       + ('0'+d.getMinutes()).slice(-2) + ':' 
-			       + ('0'+d.getSeconds()).slice(-2); 
-
-		event.display_date = datestring;
-		event.display_time = timestring;
-
 		alerts[i] = event;
 console.log(alerts[i]);		
 	}	

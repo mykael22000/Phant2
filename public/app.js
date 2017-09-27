@@ -35,12 +35,59 @@ uiModules
 
 .controller('phant-2AlertListController', function ($http, $scope, $timeout) {
 
+  var formatFields = function(event) {
+
+	var ts = event.timestamp;
+	var d = new Date(+ts);
+
+	var datestring = ("0" + d.getDate()).slice(-2) + "-" 
+		       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
+		       + d.getFullYear(); 
+
+	var timestring = ('0'+d.getHours()).slice(-2) + ':' 
+		       + ('0'+d.getMinutes()).slice(-2) + ':' 
+		       + ('0'+d.getSeconds()).slice(-2); 
+
+	event.display_date = datestring;
+	event.display_time = timestring;
+ 
+	if (event.history !== undefined) { 
+		for (var j = 0; j < event.history.length; j++) {
+			var hist = event.history[j];
+
+			ts = hist.timestamp;
+
+			d = new Date(+ts);
+
+			datestring = ("0" + d.getDate()).slice(-2) + "-" 
+			       + ("0"+(d.getMonth()+1)).slice(-2) + "-" 
+			       + d.getFullYear();
+
+			timestring = ('0'+d.getHours()).slice(-2) + ':' 
+			       + ('0'+d.getMinutes()).slice(-2) + ':' 
+			       + ('0'+d.getSeconds()).slice(-2);
+
+			hist.display_date = datestring; 
+			hist.display_time = timestring;
+		}	
+	}	
+
+	return event;
+  };		
+
   var timer = 0;	 
  
   var refreshAlerts = function() {   	
 
 	  $http.get('../api/phant-2/alerts').then((response) => {
-	    $scope.alerts = response.data;
+	    var alerts = response.data;
+
+	    for (var i = 0; i < alerts.length; i++) {
+		    var event = alerts[i];
+		    alerts[i] = formatFields(event);
+	    }	    
+
+            $scope.alerts = alerts;		   
           });	  
 
 	  timer = $timeout(refreshAlerts, 5000);
