@@ -10,12 +10,12 @@
 	  <th style="width:50%">Text</td>	
 	  <th style="width:10%">Actions</td>
         </tr>
-	<tr ng-repeat="alert in alerts" style="background-color:{{alert.bg}}">
-	  <td>{{alert.severity}}</td>	
+	<tr ng-repeat="idb in idz" style="background-color:{{alertz[idb.id].bg}}">
+	  <td>{{id=idb.id;alert=alertz[id];""}}{{alert.severity}}</td>	
 	  <td>{{alert.display_time}} {{alert.display_date}}</td>	
 	  <td>{{alert.class}}</td>	
 	  <td>{{alert.text}}</td>	
-	  <td><a href="#/alert/{{alert._id}}">D</a></td>
+	  <td><a href="#/alert/{{id}}">D</a></td>
         </tr>
       </table>
     </div>

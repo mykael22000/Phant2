@@ -28,6 +28,8 @@ uiRoutes
 	controllerAs: 'ctrl'
 });	
 
+const util = require('util'); // For debug
+
 uiModules
 .get('app/Phant2', [])
 
@@ -56,19 +58,40 @@ uiModules
 
   var timer = 0;
 
-  $scope.alerts = [];	
+  $scope.idz = [];
+
+  var addId = function(idb) {
+
+	$scope.idz.push(idb);
+console.log(idb);
+console.log(util.inspect($scope.idz, false, null));
+  } 	  
+
+  $scope.alertz = {};
 
   $scope.since = 0;
 
   var receiveAlerts = function(alerts) {
 
 	for (var i = 0; i < alerts.length; i++) {
+
 		var event = alerts[i];
-		$scope.alerts.push(formatFields(event));
+
+		// Record/update the alert
+
+		var id = event._id;
+
+		$scope.alertz[id] = formatFields(event);
+
+		// Add to the list of displayed alerts 
+
+		addId({id: id, ts: event.timestamp});
+
+		// Track most alert event received
 
 		if (event.last_updated > $scope.since) {
 			$scope.since = event.last_updated;
-		}	
+		}
 	}	       
   }	  
  
@@ -76,14 +99,6 @@ uiModules
 
 	  $http.get('../api/phant-2/alerts/' + $scope.since ).then((response) => {
 	    receiveAlerts(response.data);	  	  
-//	    var alerts = response.data;
-//
-//	    for (var i = 0; i < alerts.length; i++) {
-//		    var event = alerts[i];
-//		    alerts[i] = formatFields(event);
-//	    }	    
-//
-//          $scope.alerts = alerts;		   
           });	  
 
 	  timer = $timeout(refreshAlerts, 5000);
@@ -93,8 +108,9 @@ uiModules
 
   $scope.$on('$destroy', function(){
       $timeout.cancel(timer);	
-      $scope.alerts = {};	
-      $scope.since = 0;	  
+      $scope.since = 0;	
+      $scope.alertz = {};
+      $scope.idz = [];	  
   }); 
 })
 
